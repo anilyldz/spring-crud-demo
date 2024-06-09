@@ -22,7 +22,8 @@ public class CruddemoApplication {
 			//createStudent(studentDAO);
 			//readStudent(studentDAO);
 			//listStudents(studentDAO);
-			listStudentsByLastName(studentDAO);
+			//listStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
 	}
 
@@ -54,5 +55,12 @@ public class CruddemoApplication {
 		for (Student student : theStudents) {
 			System.out.println(student);
 		}
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId = 7;
+		Student student = studentDAO.findbyId(studentId);
+		student.setLastName("Kiyosaki");
+		studentDAO.updateStudent(student);
 	}
 }
