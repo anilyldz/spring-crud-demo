@@ -20,12 +20,13 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			//createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 			//readStudent(studentDAO);
 			//listStudents(studentDAO);
 			//listStudentsByLastName(studentDAO);
 			//updateStudent(studentDAO);
 			//deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+			//deleteAllStudents(studentDAO);
 		};
 	}
 
@@ -33,6 +34,15 @@ public class CruddemoApplication {
 		Student tempStudent = new Student("Anil", "Yildiz", "anil.yildiz@mail.com");
 		studentDAO.save(tempStudent);
 		System.out.println("Student saved id : " + tempStudent.getId());
+	}
+
+	private void createMultipleStudents(StudentDAO studentDAO) {
+		Student student1 = new Student("Anil", "Yildiz", "anil.yildiz@mail.com");
+		Student student2 = new Student("Erdem", "Yildiz", "erdem.yildiz@mail.com");
+		Student student3 = new Student("Ece", "Yildiz", "ece.yildiz@mail.com");
+		studentDAO.save(student1);
+		studentDAO.save(student2);
+		studentDAO.save(student3);
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
